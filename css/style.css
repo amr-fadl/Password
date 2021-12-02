@@ -1,0 +1,171 @@
+:root {
+    --min-color-a:#6794b9cc;
+    --min-color-:#fff;
+    /* --min-color-:#757575; */
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+    transition: all 3s;
+    -webkit-transition: all 3s;
+    -moz-transition: all 3s;
+    -ms-transition: all 3s;
+    -o-transition: all 3s;
+}
+body {
+    font-size: 15px;
+    background-color: var(--min-color-a);
+    font-family: 'Montserrat', sans-serif;
+    color: var(--min-color-);
+}
+/* start the password */
+#Create-password{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #c080ed, #b08af1, #a293f2, #969bf1, #8da1ee, #78a5ec, #66a9e7, #57abe0, #31acd5, #00abc5, #00a9b2, #1da69c);
+}
+#Create-password .password{
+    width: 450px;
+    height: 360px;
+    background-color: #bfcedb23;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    position: relative;
+    border-radius: 20px;
+    border-left: 1px solid #66a9e7;
+    border-top: 1px solid #66a9e7;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    border: 1px solid #66817c54;
+}
+/* start main titl of the password */
+.titl-password{
+    width: 100%;
+    text-align: center;
+    padding-bottom: 18px;
+}
+/* This is the part of the place where a password is created and a copy of the password is made */
+.ap-pragh {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--min-color-a);
+    padding: 10px;
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid #54e0c7;
+    overflow: hidden;
+}
+.ap-pragh .passspan {
+    width: 87%;
+    overflow: auto;
+    border: none;
+    outline: none;
+    background-color: #d1d7dc00;
+    color: #fff;
+}
+.copypass{
+    cursor: pointer;
+    text-align: center;
+    font-size: small;
+}
+/* start box input */
+.allInput{
+    padding-top: 15px;
+}
+.box{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    width: 100%;
+    padding-top: 15px;
+}
+.inpValue{
+    width: 50px;
+    background-color: var(--min-color-a);
+    border: 0;
+    outline: 0 !important;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    cursor: auto !important;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #54e0c7;
+}
+.inpValue:hover{
+    background: #54e0c7;
+}
+.inputGroup {
+    position: relative;
+}
+.inputGroup input {
+    visibility: hidden;
+    cursor: pointer;
+}
+.inputGroup label:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--min-color-a);
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-size: 21px;
+    background-position: 2px 3px;
+    border-radius: 50%;
+    z-index: 2;
+    right: -4px;
+    top: 6px;
+    position: absolute;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+.inputGroup input:checked ~ label {
+    color: #fff;
+}
+.inputGroup input:checked ~ label:before {
+    transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    opacity: 1;
+}
+.inputGroup input:checked ~ label:after {
+    background-color: #54e0c7;
+    border-color: #54e0c7;
+}
+/* start box button */
+.box2 {
+    position: absolute;
+    bottom: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.butt-Generator {
+    width: 165px;
+    height: 55px;
+    color: var(--min-color-);
+    background-color: #6E95B1;
+    border-radius: 29px;
+    cursor: pointer;
+    background-color: var(--min-color-a);
+    box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
+    border: 1px solid #54e0c7;
+}
+.butt-Generator:hover {
+    background-color: #54e0c7;
+}

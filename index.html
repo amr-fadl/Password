@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>java</title>
+    <!-- start font awesome -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- start css -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <header>
+        <!-- start min-Create-password -->
+        <div id="Create-password">
+            <div class="password">
+                <!-- start the titl  -->
+                <h2 class="titl-password">
+                    Password Generator
+                </h2>
+                <!-- End the titl  -->
+                <!-- start the password is created and copy  -->
+                <div id="pragh" class="ap-pragh">
+                    <input type="text" id="inpass" class="passspan">
+                    <h3 id="copypass" class="copypass">
+                        <i class="far fa-copy"></i>
+                        <p>copy</p>
+                    </h3>
+                </div>
+                <!-- End the password is created and copy -->
+                <!-- start all input  -->
+                <div class="allInput">
+                    <!-- Start password length box -->
+                    <div class="box">
+                        <label for="">Password length</label>
+                        <input type="text" class="inpValue" min="4" max="50" value="10" name="" placeholder="0"
+                            id="inpValue">
+                    </div>
+                    <!-- End password length box -->
+                    <!-- start input small letters  -->
+                    <div class="box">
+                        <label for="">small letters</label>
+                        <div class="inputGroup">
+                            <input id="myCheck1" name="option1" checked type="checkbox" />
+                            <label for="myCheck1"></label>
+                        </div>
+                    </div>
+                    <!-- start input checkbox Number  -->
+                    <div class="box">
+                        <label for="">Number</label>
+                        <div class="inputGroup">
+                            <input id="myCheck2" name="option1" checked type="checkbox" />
+                            <label for="myCheck2"></label>
+                        </div>
+                    </div>
+                    <!-- start input checkbox capital letters  -->
+                    <div class="box">
+                        <label for="">capital letters</label>
+                        <div class="inputGroup">
+                            <input id="myCheck3" name="option1" checked type="checkbox" />
+                            <label for="myCheck3"></label>
+                        </div>
+                    </div>
+                    <!-- start input checkbox symbols  -->
+                    <div class="box">
+                        <label for="">symbols</label>
+                        <div class="inputGroup">
+                            <input id="myCheck4" name="option1" checked type="checkbox" />
+                            <label for="myCheck4"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- end all input -->
+                <!-- start button  -->
+                <div class="box2">
+                    <button class="butt-Generator" onclick="test()">Generator Password</button>
+                </div>
+                <!-- End button  -->
+            </div>
+        </div>
+    </header>
+
+    <script>
+        // Defining variables (numbers, letters and symbols)
+        var smallLetters = "abcdefghijklmnopqrstuvwxyz"
+        var number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+        var capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        var symbols = "!@#{}$%[]^&*()_-"
+        // variables Input
+        var input1 = document.getElementById("myCheck1")
+        var input2 = document.getElementById("myCheck2")
+        var input3 = document.getElementById("myCheck3")
+        var input4 = document.getElementById("myCheck4")
+        var inp1 = document.getElementById("inpValue")
+        var pop = document.getElementById("pragh")
+        var copypas = document.getElementById("copypass")
+        // This varibol (pragh1) was created where the password is saved. The password consists of the number of checkboxes that are checked
+        var pragh1
+        // This varibol was created where the final password is written
+        var pragh = document.getElementById("inpass")
+        let amr
+        function test() {
+            // The value assigned to it is made empty before entering for loop
+            pragh1 = ""
+            pragh.value = ""
+            /* This condition has been created
+            So that the number entered by the user does not exceed the specified number that was specified as a maximum */
+            inp1.value >= 10000 ? inp1.value = 10000 : null;
+            /* At least one checkbox has been made to be in the checked state before entering the loop so that no error occurs
+            If you do not select any checkbox */
+            if (input1.checked == true || input2.checked == true || input3.checked == true || input4.checked == true) {
+                // Iterates inside the loop = input.value
+                for (var i = 0; i < inp1.value; i++) {
+                    // if any input.checked == true this operation is executed and a random number, letter, or symbol is generated
+                    // The number, letter or symbol that is chosen randomly each time is determined by the number entered
+                    // start (if) that checks that input1.checked == true
+                    if (input1.checked == true) {
+                        var random1 = Math.floor(Math.random() * 26)
+                        var myLorem = smallLetters[random1]
+                        amr = pragh1 += myLorem
+                    }
+                    // start (if) that checks that input2.checked == true
+                    if (input2.checked == true) {
+                        var random2 = Math.floor(Math.random() * 10)
+                        var mynum = number[random2]
+                        amr = pragh1 += mynum
+                    }
+                    // start (if) that checks that input3.checked == true
+                    if (input3.checked == true) {
+                        var random3 = Math.floor(Math.random() * 26)
+                        var capital = capitalLetters[random3]
+                        amr = pragh1 += capital
+                    }
+                    // start (if) that checks that input4.checked == true
+                    if (input4.checked == true) {
+                        var random4 = Math.floor(Math.random() * 16)
+                        var symbol = symbols[random4]
+                        amr = pragh1 += symbol
+                    }
+                }
+                // This condition was created to set a minimum number of passwords to be generated
+                if (inp1.value > 5) {
+                    // The number whose number is repeated is modified and the desired number is taken. It starts from zero and ends with the number entered by the user
+                    pragh.value += amr.substr(0, inp1.value)
+                }
+                else {
+                    pragh.value = "You must enter a number and be greater than five"
+                }
+                // This function is made of type onclick to copy the final password
+                copypas.onclick = function () {
+                    pragh.select();
+                    document.execCommand('copy');
+                }
+            } else {
+                pragh.value = "You must choose at least one option"
+            }
+        }
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
